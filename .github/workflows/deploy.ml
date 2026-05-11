@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             cd ~/Portfolio_website
-            git pull origin main
+            git pull origin master
             source venv/bin/activate
             pip install -r requirements.txt
             pkill -f app.py || true
