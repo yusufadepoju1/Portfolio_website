@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Home | Creative Developer{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-content fade-in">
+        <p class="greeting">Hello, I'm</p>
+        <h1 class="glitch-text">A Creative<br>Software Developer</h1>
+        <p class="hero-desc">I build elegant, high-performance web applications using Python and modern frontend technologies. Bringing ideas to life through code.</p>
+        <div class="hero-cta">
+            <a href="/projects" class="btn-primary lg">View My Work</a>
+            <a href="/contact" class="btn-secondary lg">Get In Touch</a>
+        </div>
+    </div>
+    <div class="hero-visual fade-in delay-1">
+        <div class="glass-card profile-card">
+            <div class="profile-img-placeholder">
+                <span>Code</span>
+            </div>
+            <h3>Full Stack Dev</h3>
+            <p>Python &bull; UI/UX &bull; AI</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

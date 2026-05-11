@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Contact | Creative Developer{% endblock %}
+{% block content %}
+<section class="contact" style="padding-top: 150px; min-height: 80vh;">
+    <div class="contact-box glass-effect fade-in">
+        <h2>Let's Build Something Amazing</h2>
+        <p>Currently open for new opportunities and exciting projects.</p>
+        <form class="contact-form">
+            <div class="input-group">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
