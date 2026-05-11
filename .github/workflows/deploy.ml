@@ -20,14 +20,13 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
           script: |
-  cd ~/Portfolio_website
-  echo "Pulling latest code..."
-  git fetch --all
-  git reset --hard origin/master
-  echo "Code updated successfully"
-  
-  source ~/venv/bin/activate
-  pip install -r requirements.txt
-  
-  pkill -f app.py || true
-  nohup python app.py > app.log 2>&1 &
+            cd ~/Portfolio_website
+            git fetch --all
+            git reset --hard origin/master
+            git clean -fd
+            
+            source ~/venv/bin/activate
+            pip install -r requirements.txt
+            
+            pkill -f app.py || true
+            nohup python app.py > app.log 2>&1 &
