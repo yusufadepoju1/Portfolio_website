@@ -21,6 +21,7 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             cd ~/Portfolio_website
+            
             git fetch --all
             git reset --hard origin/master
             git clean -fd
