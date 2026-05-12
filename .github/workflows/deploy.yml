@@ -28,7 +28,8 @@ jobs:
             git clean -fd
 
             ~/venv/bin/pip install -r requirements.txt
+            ~/venv/bin/pip install gunicorn
 
-            pkill -f app.py || true
+            pkill -f gunicorn || true
 
-            nohup ~/venv/bin/python ~/Portfolio_website/app.py > ~/Portfolio_website/app.log 2>&1 &
+            nohup ~/venv/bin/gunicorn -w 2 -b 0.0.0.0:5000 app:app > gunicorn.log 2>&1 &
