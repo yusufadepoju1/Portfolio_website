@@ -22,13 +22,13 @@ jobs:
           port: 22
           script: |
             cd ~/Portfolio_website
+
             git fetch --all
             git reset --hard origin/master
-            
+            git clean -fd
+
             ~/venv/bin/pip install -r requirements.txt
 
-            # Kill any existing process running app.py
             pkill -f app.py || true
 
-            # Start the app using the full path to avoid "No such file" error
             nohup ~/venv/bin/python ~/Portfolio_website/app.py > ~/Portfolio_website/app.log 2>&1 &
