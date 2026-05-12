@@ -19,15 +19,24 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
+          port: 22
           script: |
-            cd ~/Portfolio_website
+              # Create the directory if it doesn't exist
+              mkdir -p ~/Portfolio_website
+              cd ~/Portfolio_website
 
-            git fetch --all
-            git reset --hard origin/master
-            git clean -fd
+              # Initialize git if it's a brand new folder
+              if [ ! -d ".git" ]; then
+                git clone https://github.com/${{ github.repository }}.git .
+              fi
 
-            ~/venv/bin/pip install -r requirements.txt
+              git fetch --all
+              git reset --hard origin/master
+              git clean -fd
 
-            pkill -f app.py || true
+              # Ensure venv exists
+              python3 -m venv ~/venv
+              ~/venv/bin/pip install -r requirements.txt
 
-            nohup ~/venv/bin/python app.py > app.log 2>&1 &
+              pkill -f app.py || true
+              nohup ~/venv/bin/python app.py > app.log 2>&1 &
