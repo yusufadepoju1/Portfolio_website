@@ -29,6 +29,6 @@ jobs:
 
             ~/venv/bin/pip install -r requirements.txt
 
-            pkill -f app.py || true
+            pkill -f app.py && echo "Old Flask stopped" || echo "No Flask process"
 
             nohup ~/venv/bin/python ~/Portfolio_website/app.py > ~/Portfolio_website/app.log 2>&1 &
